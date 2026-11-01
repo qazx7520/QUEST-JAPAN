@@ -171,12 +171,17 @@
 }
 @media(min-width:721px){.map-tools{top:57px}}
 
+
+/* 3.3: 첫 화면에서 차등 보상 규칙을 바로 이해할 수 있도록 안내합니다. */
+.travel-xp-intro{display:inline-flex;align-items:center;gap:8px;margin:12px 0 0!important;padding:9px 14px;background:#e5f3e9;color:#28664a!important;font-size:14px;font-weight:800;border:1px solid #bcdac4;border-radius:999px;letter-spacing:-.2px}
+.travel-xp-intro span{color:#3c956b;font-size:17px}
+@media(max-width:720px){.travel-xp-intro{font-size:12px;line-height:1.5;padding:8px 12px}}
 </style>
 </head>
 <body>
 <header><div class="headerin"><div><div class="logo">QUEST <span>JAPAN</span> 🧭</div><div class="tagline">どこでも、日本。 · 어디든, 일본.</div></div><div class="topchip">📖 문학의 발자취를 따라, 일본의 지역으로</div></div></header>
 <main class="wrap">
-<section class="hero"><div><div class="eyebrow" style="margin-bottom:10px">LITERARY JOURNEY · 文学でめぐる日本</div><h1>책장을 넘기면, 새로운 일본이 펼쳐집니다.</h1><p>고대의 시가부터 근대 소설까지, 작품의 발자취를 따라 직접 여행하고 사진으로 기록하세요. 문학을 통해 지역을 발견하고, 지역으로 향하는 발걸음에 보상을 더합니다.</p></div><div class="stats"><div class="stat"><strong id="points">0 P</strong><small>총 획득 포인트</small></div><div class="stat"><strong id="count">0 / 6</strong><small>방문 완료 지역</small></div><div class="stat"><strong id="questCount">0 / 18</strong><small>완료한 퀘스트</small></div></div></section>
+<section class="hero"><div><div class="eyebrow" style="margin-bottom:10px">LITERARY JOURNEY · 文学でめぐる日本</div><h1>책장을 넘기면, 새로운 일본이 펼쳐집니다.</h1><p>고대의 시가부터 근대 소설까지, 작품의 발자취를 따라 직접 여행하고 사진으로 기록하세요. 문학을 통해 지역을 발견하고, 지역으로 향하는 발걸음에 보상을 더합니다.</p><p class="travel-xp-intro"><span aria-hidden="true">✦</span> 방문이 어려울수록 경험치가 높아요.</p></div><div class="stats"><div class="stat"><strong id="points">0 P</strong><small>총 획득 포인트</small></div><div class="stat"><strong id="count">0 / 6</strong><small>방문 완료 지역</small></div><div class="stat"><strong id="questCount">0 / 18</strong><small>완료한 퀘스트</small></div></div></section>
 <div class="layout">
 <section class="panel"><div class="paneltop"><h2>🗾 문학 탐험 지도</h2><p>지도나 바다 위 지역명 라벨을 눌러 문학 여행을 시작해 보세요. 각 도도부현에 마우스를 올리면 살짝 떠오릅니다.</p></div><div class="mapstatus" id="mapStatus" role="status" aria-live="polite"><span class="legenddot"></span><span>도도부현에 커서를 올리면 강조되고 이름이 표시됩니다. 바다 위 이름표도 클릭할 수 있어요.</span></div><div class="mapbox" id="mapViewport">
   <div class="map-tools" aria-label="지도 확대와 이동">
@@ -524,8 +529,53 @@ function identifyPrefecture(properties){
    return polygons.map(poly=>poly.map(ring=>ring.map((pt,i)=>{const [x,y]=xy(pt);return (i?'L':'M')+x.toFixed(2)+' '+y.toFixed(2)}).join(' ')+'Z').join(' ')).join(' ');
   };
   const palette=['#a5d9d4','#9dd0e5','#b9d5a7','#eed79b','#d6c0e5','#f0c2ba','#d5db9d','#a9c4e1'];
+  // 3.3: 지정 도시의 좌표가 아닌 도도부현의 주요 육지 영역 중심에 작은 점을 표시합니다.
+  // 일부 도도부현에는 멀리 떨어진 섬이 있으므로 가장 큰 외곽 다각형을 사용합니다.
+  const markerCenters=new Map();
+  const ringAreaAndCenter=ring=>{
+   let crossTotal=0,cx=0,cy=0;
+   for(let i=0;i<ring.length;i++){
+    const a=ring[i],b=ring[(i+1)%ring.length];
+    const cross=a[0]*b[1]-b[0]*a[1];
+    crossTotal+=cross;cx+=(a[0]+b[0])*cross;cy+=(a[1]+b[1])*cross;
+   }
+   if(Math.abs(crossTotal)<1e-9)return null;
+   return {area:Math.abs(crossTotal)/2,point:[cx/(3*crossTotal),cy/(3*crossTotal)]};
+  };
+  const insideRing=(point,ring)=>{
+   let inside=false;
+   for(let i=0,j=ring.length-1;i<ring.length;j=i++){
+    const [xi,yi]=ring[i],[xj,yj]=ring[j];
+    if(((yi>point[1])!==(yj>point[1])) && point[0]<(xj-xi)*(point[1]-yi)/(yj-yi)+xi)inside=!inside;
+   }
+   return inside;
+  };
+  const mainLandCenter=geometry=>{
+   const polygons=geometry.type==='Polygon'?[geometry.coordinates]:geometry.type==='MultiPolygon'?geometry.coordinates:[];
+   let best=null;
+   for(const polygon of polygons){
+    if(!polygon[0] || polygon[0].length<3)continue;
+    const projected=polygon[0].map(xy),stats=ringAreaAndCenter(projected);
+    if(stats && (!best || stats.area>best.area))best={...stats,ring:projected};
+   }
+   if(!best)return null;
+   if(insideRing(best.point,best.ring))return best.point;
+   // 오목한 모양일 때 중심점이 바다에 빠지지 않도록 내부 후보점 가운데 중심에 가까운 점을 선택합니다.
+   const xs=best.ring.map(p=>p[0]),ys=best.ring.map(p=>p[1]);
+   const minX=Math.min(...xs),maxX=Math.max(...xs),minY=Math.min(...ys),maxY=Math.max(...ys);
+   let result=null,nearest=Infinity;
+   for(let iy=0;iy<=45;iy++)for(let ix=0;ix<=45;ix++){
+    const candidate=[minX+(ix+.5)/46*(maxX-minX),minY+(iy+.5)/46*(maxY-minY)];
+    if(!insideRing(candidate,best.ring))continue;
+    const distance=Math.hypot(candidate[0]-best.point[0],candidate[1]-best.point[1]);
+    if(distance<nearest){nearest=distance;result=candidate}
+   }
+   return result || best.ring[0];
+  };
   // SVG 경계는 각 현과 명칭을 1:1로 대응합니다. 선택 불가능한 지역도 정확한 이름을 알려줍니다.
   for(const {feature,pref} of entries){
+   const regionId=missionByPrefecture.get(pref.code);
+   if(regionId)markerCenters.set(regionId,mainLandCenter(feature.geometry));
    const id=missionByPrefecture.get(pref.code)||'';
    const p=el('path',{d:pathOf(feature.geometry),class:'pref '+(id?'selectable':'unavailable'),fill:palette[(pref.code-1)%palette.length],
      'data-region':id,'data-pref-code':pref.code,'aria-label':`${pref.ko} (${pref.ja})`,'role':'button','tabindex':'0'});
@@ -540,19 +590,21 @@ function identifyPrefecture(properties){
   }
   // 육지 위에는 지점만 남기고 이름표는 주변 바다(영해 방향)의 여백에 고정합니다.
   // SVG 절대 좌표를 사용하므로 라벨이 지도 확대/축소 시에도 지점과 함께 움직입니다.
-  // [지역 ID, 경도, 위도, 라벨, 라벨 중앙 x, 라벨 중앙 y]
+  // [지역 ID, 바다 쪽 라벨, 라벨 중앙 x, 라벨 중앙 y] — 점의 위치는 실제 도도부현 외곽 중심에서 자동 계산
    const pins=[
-    ['tokyo',139.718,35.708,'도쿄 ×1',491,321],              // 관동의 태평양 쪽
-    ['osaka',135.506,34.699,'오사카 ×1',355,482],             // 긴키 남쪽 바다
-    ['matsuyama',132.785,33.853,'마쓰야마 ×4',229,513],       // 시코쿠 남쪽 바다
-    ['nara',135.822,34.473,'나라 ×4',478,420],               // 기이반도 동쪽 바다
-    ['kyoto',135.806,34.892,'교토(우지) ×2',111,325],         // 동해(일본해) 쪽
-    ['yamagata',140.407,38.591,'야마가타 ×8',207,206]        // 동해(일본해) 쪽
+    ['tokyo','도쿄 ×1',491,321],              // 관동의 태평양 쪽
+    ['osaka','오사카 ×1',355,482],             // 긴키 남쪽 바다
+    ['matsuyama','마쓰야마 ×4',229,513],       // 시코쿠 남쪽 바다
+    ['nara','나라 ×4',478,420],               // 기이반도 동쪽 바다
+    ['kyoto','교토(우지) ×2',111,325],         // 동해(일본해) 쪽
+    ['yamagata','야마가타 ×8',207,206]        // 동해(일본해) 쪽
    ];
   const lineLayer=el('g',{'aria-hidden':'true'});
   const pinLayer=el('g',{'aria-label':'체험 가능한 6개 지역 마커'});
-  pins.forEach(([id,lon,lat,label,labelX,labelY])=>{
-   const [x,y]=xy([lon,lat]);
+  pins.forEach(([id,label,labelX,labelY])=>{
+   const center=markerCenters.get(id);
+   if(!center)return;
+   const [x,y]=center;
    const width=label.length*11+22,height=27;
    const left=labelX-width/2,right=labelX+width/2,top=labelY-height/2,bottom=labelY+height/2;
    // 위치에서 가장 가까운 라벨 테두리까지 선을 연결하되 라벨 내부는 지나지 않도록 합니다.
