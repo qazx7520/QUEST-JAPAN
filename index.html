@@ -214,6 +214,26 @@
 .tier-modal{position:fixed;inset:0;z-index:110;background:#101b29b9;display:flex;align-items:center;justify-content:center;padding:18px;backdrop-filter:blur(7px)}.tier-modal-card{position:relative;isolation:isolate;overflow:hidden;text-align:center;width:min(100%,425px);background:radial-gradient(circle at 50% 12%,#fff8cd,#fffdf4 50%,#eef4f7 100%);border:2px solid #f4db88;border-radius:25px;padding:34px 25px;box-shadow:0 21px 80px #020c1c91;animation:tierPopup .55s cubic-bezier(.15,.89,.25,1.24) both}.tier-modal-kicker{font-size:13px;letter-spacing:2.6px;font-weight:1000;color:#a47823}.tier-emblem-large{width:154px;height:166px;margin:12px auto;flex-basis:unset;animation:rankRise .8s ease-out both}.tier-emblem-large .emblem-mark{font-size:65px}.tier-emblem-large .emblem-shine{font-size:33px;top:1px;right:9px}.tier-modal-card h2{font-size:32px;margin:10px 0;color:#2e5847}.tier-congrats-line{font-size:12px;color:#8a763b;font-weight:850}.tier-modal-card p{font-size:13px;line-height:1.8;color:#71877b}.tier-congrats-xp{display:inline-block;color:#87621f;background:#fff0bc;padding:8px 15px;border-radius:99px;font-size:13px;font-weight:900}.tier-close{width:100%;margin-top:19px}.tier-stars{position:absolute;inset:0;pointer-events:none;z-index:-1}.tier-star{position:absolute;left:var(--x);top:var(--y);color:#e0b64b;font-size:var(--size);animation:starPulse 1.45s var(--delay) infinite ease-in-out alternate;text-shadow:0 0 14px #f2c974}.tier-modal[hidden]{display:none}@keyframes emblemTwinkle{from{opacity:.5;transform:scale(.8) rotate(-11deg)}to{opacity:1;transform:scale(1.2) rotate(11deg)}}@keyframes tierPopup{from{opacity:0;transform:translateY(50px) scale(.8)}to{opacity:1;transform:translateY(0) scale(1)}}@keyframes rankRise{from{opacity:0;transform:rotate(-20deg) scale(.5)}to{opacity:1;transform:rotate(0) scale(1)}}@keyframes starPulse{from{opacity:.3;transform:scale(.55) rotate(15deg)}to{opacity:1;transform:scale(1.45) rotate(-12deg)}}
 @media(max-width:720px){.player-hub{padding:13px 12px;gap:11px;border-radius:16px}.player-emblem{width:67px;height:76px;flex-basis:67px}.player-id strong{font-size:16px}.player-id .player-tier-title{font-size:10px}.player-edit{font-size:11px;padding:7px}.player-xp-line{margin-top:10px}.player-foot span{font-size:10px}.tier-guide{grid-template-columns:repeat(3,minmax(0,1fr))}.nickname-row button{font-size:11px;padding:9px 10px}.tier-emblem-large{width:138px;height:150px;flex-basis:unset}.tier-modal-card h2{font-size:27px}}
 @media(prefers-reduced-motion:reduce){.emblem-shine,.tier-modal-card,.tier-emblem-large,.tier-star{animation:none!important}.player-progress>div{transition:none!important}}
+
+/* QUEST JAPAN 3.6 · 각 지역이 개별적으로 성장하는 랭크 시스템 */
+.explorer-symbol{width:70px;height:70px;flex:0 0 70px;display:grid;place-items:center;border-radius:20px;background:linear-gradient(135deg,#e4f3e9,#c4e3d1);border:2px solid #a4cbb4;font-size:35px;box-shadow:0 5px 18px #326c491c}
+.region-rank-banner{display:flex;align-items:center;gap:12px;margin:13px 0 5px;padding:12px 13px;background:#f0f5ef;border:1px solid #cbdccf;border-radius:14px}
+.region-rank-banner strong{display:block;font-size:15px;color:#2c4f42}.region-rank-banner small{display:block;font-size:11px;margin-top:4px;color:#6f8777;line-height:1.5}.region-rank-banner .rank-steps{margin-left:auto;flex:none;font-size:12px;font-weight:900;color:#527764}
+.region-rank-banner.rank-highlight-challenger{background:linear-gradient(110deg,#fff4d1,#e7e4ff);border-color:#d8be83}
+.rank-symbol{display:inline-grid;place-items:center;flex:none;width:37px;height:40px;border-radius:11px;font-size:22px;font-weight:900;box-shadow:inset 0 1px 2px #fff9,0 3px 9px #162b3222;border:2px solid var(--rank-border,#b7c2b9);background:linear-gradient(140deg,var(--rank-light,#edf1eb),var(--rank-main,#d9e1d8));color:var(--rank-ink,#5c7564);text-shadow:0 1px 1px #fff9}
+.rank-none{--rank-light:#f8faf5;--rank-main:#e7ede7;--rank-border:#c7d1c7;--rank-ink:#87968c}.rank-bronze{--rank-light:#f5d0b0;--rank-main:#bb805a;--rank-border:#9b603c;--rank-ink:#684029}.rank-silver{--rank-light:#f4faff;--rank-main:#9daebc;--rank-border:#6d8191;--rank-ink:#365366}.rank-gold{--rank-light:#fff9be;--rank-main:#e9b84a;--rank-border:#c78b23;--rank-ink:#895612}.rank-challenger{--rank-light:#f7e5ff;--rank-main:#7d72d8;--rank-border:#5f52bb;--rank-ink:#fffae5;animation:challengerShine 2.3s infinite alternate ease-in-out}
+@keyframes challengerShine{from{filter:drop-shadow(0 0 2px #bb9cf9)}to{filter:drop-shadow(0 0 9px #ba8afa) brightness(1.16)}}
+.tier-none{--tier-main:#aab8ac;--tier-light:#edf5ed;--tier-dark:#748579}.tier-challenger{--tier-main:#9871df;--tier-light:#fff0ac;--tier-dark:#504bb8}
+.tier-guide{grid-template-columns:repeat(5,minmax(0,1fr))}.tier-step{opacity:1}.tier-step small{line-height:1.35}
+.region-rank-list{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:13px}.region-rank-row{width:100%;display:flex;align-items:center;gap:8px;border:1px solid #e1e9df;border-radius:13px;padding:10px 9px;text-align:left;background:#fbfdf9;cursor:pointer;color:#345b45}.region-rank-row:hover,.region-rank-row:focus-visible{border-color:#8ebb9d;background:#eaf6ee}.region-rank-row.selected{background:#eaf6ec;border-color:#70a584;box-shadow:0 0 0 1px #b9dcc7}.region-rank-row .rank-symbol{width:28px;height:30px;font-size:16px;border-radius:8px}.region-rank-title{font-weight:850;font-size:13px;flex:1;min-width:0}.region-rank-state{font-size:11px;font-weight:900;color:#47705b}.region-rank-quests{font-size:10px;color:#73897a;white-space:nowrap}
+#japanMap .map-rank-disc{fill:#f1f3ef;stroke:#9cac9a;stroke-width:1;pointer-events:none}#japanMap .map-rank-symbol{font-size:11px;font-weight:900;stroke:none;pointer-events:none;paint-order:normal;fill:#7d9282}
+#japanMap .map-rank-disc.map-rank-bronze{fill:#bd805a;stroke:#845033}#japanMap .map-rank-symbol.map-rank-bronze{fill:#fff5e6}
+#japanMap .map-rank-disc.map-rank-silver{fill:#9daeba;stroke:#5c7c8f}#japanMap .map-rank-symbol.map-rank-silver{fill:#fff}
+#japanMap .map-rank-disc.map-rank-gold{fill:#f2cb68;stroke:#bd8825}#japanMap .map-rank-symbol.map-rank-gold{fill:#805511}
+#japanMap .map-rank-disc.map-rank-challenger{fill:#8d6edd;stroke:#eee0ff;filter:drop-shadow(0 0 3px #be9aff)}#japanMap .map-rank-symbol.map-rank-challenger{fill:#fff9bf}
+@media(max-width:720px){.explorer-symbol{width:53px;height:53px;flex-basis:53px;font-size:27px;border-radius:15px}.region-rank-list{grid-template-columns:1fr 1fr}.region-rank-row{flex-wrap:wrap;gap:5px}.region-rank-quests{margin-left:auto}.region-rank-banner{gap:8px;padding:11px 9px}.region-rank-banner strong{font-size:13px}.region-rank-banner .rank-steps{font-size:11px}.tier-guide{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:390px){.region-rank-list{grid-template-columns:1fr}.region-rank-row{flex-wrap:nowrap}}
+@media(prefers-reduced-motion:reduce){.rank-challenger{animation:none!important}}
 </style>
 </head>
 <body>
@@ -231,16 +251,16 @@
  </div>
  <div class="stats" aria-label="나의 탐험 기록"><div class="stat"><strong id="points">0 P</strong><small>획득 포인트</small></div><div class="stat"><strong id="count">0 / 6</strong><small>방문 지역</small></div><div class="stat"><strong id="questCount">0 / 18</strong><small>완료 퀘스트</small></div></div>
 </section>
-<section class="player-hub" aria-label="나의 탐험가 프로필">
- <div class="player-emblem tier-bronze" id="playerEmblem" aria-hidden="true"><span class="emblem-shine">✦</span><span class="emblem-mark">◆</span></div>
+<section class="player-hub region-player-hub" aria-label="내 지역별 탐험 기록">
+ <div class="explorer-symbol" aria-hidden="true">🧭</div>
  <div class="player-main">
-  <div class="player-head"><div><div class="player-eyebrow">MY EXPLORER · 나의 탐험가</div><div class="player-id"><strong id="playerName">게스트 탐험가</strong><span class="player-tier-title" id="playerTier">브론즈 · 初心者</span></div></div><button type="button" id="editNickname" class="player-edit">닉네임 등록</button></div>
-  <div class="player-xp-line"><strong id="playerXp">0 XP</strong><span id="playerNext">다음 티어까지 250 XP</span></div>
-  <div class="player-progress" role="progressbar" id="playerProgress" aria-label="다음 티어까지 경험치 진행률" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="playerProgressFill"></div></div>
-  <div class="player-foot"><span>지역 방문·퀘스트 완료로 경험치를 얻어요 (1 P = 1 XP)</span><button type="button" id="toggleTierGuide" class="player-guide-toggle" aria-expanded="false" aria-controls="tierGuide">전체 티어 보기 ↓</button></div>
+  <div class="player-head"><div><div class="player-eyebrow">MY JOURNEY · 나의 지역 탐험</div><div class="player-id"><strong id="playerName">게스트 탐험가</strong><span class="player-tier-title" id="playerTier">도전할 지역을 선택해 보세요</span></div></div><button type="button" id="editNickname" class="player-edit">닉네임 등록</button></div>
+  <div class="player-xp-line"><strong id="playerXp">0 XP</strong><span id="playerNext">챌린저 달성 지역 0 / 6</span></div>
+  <div class="player-progress" role="progressbar" id="playerProgress" aria-label="전체 퀘스트 달성률" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div id="playerProgressFill"></div></div>
+  <div class="player-foot"><span>XP는 전체 누적 · 랭크는 지역마다 별도로 성장합니다</span><button type="button" id="toggleTierGuide" class="player-guide-toggle" aria-expanded="false" aria-controls="tierGuide">지역 랭크 기준 보기 ↓</button></div>
   <form class="nickname-form" id="nicknameForm" hidden><label for="nicknameInput">탐험가 닉네임 (최대 16자)</label><div class="nickname-row"><input id="nicknameInput" maxlength="16" autocomplete="nickname" placeholder="여행자 닉네임" aria-describedby="nicknameHelp" required><button type="submit" class="primary">저장</button><button type="button" id="cancelNickname">취소</button></div><small id="nicknameHelp">로그인 없이 이 브라우저에만 저장됩니다. 다른 기기와 공유되지 않아요.</small></form>
  </div>
- <div class="tier-guide" id="tierGuide" hidden aria-label="티어 승급 단계"></div>
+ <div class="tier-guide" id="tierGuide" hidden aria-label="지역 랭크 달성 기준"></div>
 </section>
 <div class="layout">
 <section class="panel" id="mapExplore"><div class="paneltop"><h2>🗾 문학 탐험 지도</h2><p>지도나 바다 위 지역명 라벨을 눌러 문학 여행을 시작해 보세요. 각 도도부현에 마우스를 올리면 살짝 떠오릅니다.</p></div><div class="mapstatus" id="mapStatus" role="status" aria-live="polite"><span class="legenddot"></span><span>도도부현에 커서를 올리면 강조되고 이름이 표시됩니다. 바다 위 이름표도 클릭할 수 있어요.</span></div><div class="mapbox" id="mapViewport">
@@ -262,7 +282,7 @@
   </div>
   <button type="button" class="mobile-region-cta" id="mobileRegionDetail">현재 선택한 지역 확인하기 <span aria-hidden="true">↓</span></button>
  </div></section>
-<section class="panel details"><div class="eyebrow">REGION QUEST</div><h2 id="regionName">나라</h2><div class="jp" id="regionJp">奈良県 · 아스카촌</div><div class="mult" id="multiplier">✨ 문학 지역 탐방 보너스 ×4</div><p class="desc" id="description"></p><div class="facts"><div class="fact"><label>📖 문학 탐방 명소</label><strong id="attraction"></strong></div><div class="fact"><label>🍜 선택할 수 있는 향토 음식</label><strong id="food"></strong></div><div class="fact"><label>📜 문학 작품과 시대</label><strong id="culture"></strong></div><div class="fact"><label>🏆 방문 보상</label><strong id="reward"></strong></div></div><button class="primary visit" id="visitBtn">이 지역 방문 체험하기</button><div class="demo-controls"><button type="button" class="reset-demo" id="resetDemo">↻ 처음부터 다시 시연하기</button><p class="demo-help">방문·퀘스트·포인트·배지를 초기화해 해금 애니메이션을 다시 볼 수 있어요.</p></div><p class="note center">시연용 방문 해금입니다. GPS 위치 검증은 아직 구현되지 않았습니다. 퀘스트에는 사진 파일이 필요합니다.</p></section>
+<section class="panel details"><div class="eyebrow">REGION QUEST</div><h2 id="regionName">나라</h2><div class="jp" id="regionJp">奈良県 · 아스카촌</div><div class="mult" id="multiplier">✨ 문학 지역 탐방 보너스 ×4</div><div class="region-rank-banner" id="regionRankBanner" aria-live="polite"><span class="rank-symbol rank-none" id="regionRankIcon">○</span><div><strong id="regionRankName">미해금 · 노랭크</strong><small id="regionRankHint">지역을 방문하면 브론즈 랭크를 획득해요</small></div><span class="rank-steps" id="regionRankSteps">0 / 3</span></div><p class="desc" id="description"></p><div class="facts"><div class="fact"><label>📖 문학 탐방 명소</label><strong id="attraction"></strong></div><div class="fact"><label>🍜 선택할 수 있는 향토 음식</label><strong id="food"></strong></div><div class="fact"><label>📜 문학 작품과 시대</label><strong id="culture"></strong></div><div class="fact"><label>🏆 방문 보상</label><strong id="reward"></strong></div></div><button class="primary visit" id="visitBtn">이 지역 방문 체험하기</button><div class="demo-controls"><button type="button" class="reset-demo" id="resetDemo">↻ 처음부터 다시 시연하기</button><p class="demo-help">방문·퀘스트·포인트·배지를 초기화해 해금 애니메이션을 다시 볼 수 있어요.</p></div><p class="note center">시연용 방문 해금입니다. GPS 위치 검증은 아직 구현되지 않았습니다. 퀘스트에는 사진 파일이 필요합니다.</p></section>
 </div>
 
 <section class="bonus-section" aria-labelledby="bonusHeading"><div class="bonus-top"><div><h2 id="bonusHeading">📚 문학이 이끄는 여행, 지역으로 이어지는 발걸음</h2><p>익숙한 도시에서 출발해 작품의 흔적이 남은 지역까지. 각 장소를 탐험하고 새로운 이야기를 발견하세요.</p></div><span class="smallpill">기본 방문 보상 100 P</span></div>
@@ -274,7 +294,7 @@
 <button type="button" class="bonus-card " data-bonus-region="nara" aria-label="나라(아스카) 선택, 방문 포인트 400점"><div class="bonus-head"><span class="bonus-city">🌾 나라(아스카)</span><span class="bonus-tag">문학 탐험</span></div><div class="bonus-number">×4 <small>400 P</small></div><div class="bonus-track"><div class="bonus-bar" style="width:40%"></div></div><div class="bonus-desc">고대 문학 · 만엽집</div></button>
 <button type="button" class="bonus-card highlight" data-bonus-region="yamagata" aria-label="야마가타(오바나자와) 선택, 방문 포인트 800점"><div class="bonus-head"><span class="bonus-city">🍃 야마가타(오바나자와)</span><span class="bonus-tag">문학 탐험</span></div><div class="bonus-number">×8 <small>800 P</small></div><div class="bonus-track"><div class="bonus-bar" style="width:80%"></div></div><div class="bonus-desc">에도 기행 문학 · 오쿠노 호소미치</div></button>
 </div><p class="bonus-note">※ 모든 포인트 배율은 <strong>시연을 위한 임시 수치</strong>이며 실제 관광객 통계를 반영한 결과가 아닙니다. 정식 서비스에서는 방문객 수·접근성·지역 수요를 종합해 결정할 예정입니다.</p></section>
-<section class="dashboard" id="explore"><div class="sectionhead"><div><h2>✨ 나의 탐험 노트</h2><p>사진으로 문학의 발자취를 기록하고, 인증 후에는 음식과 작품의 이야기를 언제든 다시 읽어 보세요.</p></div><span class="smallpill" id="level">🌱 새싹 탐험가</span></div>
+<section class="dashboard" id="explore"><div class="sectionhead"><div><h2>✨ 나의 탐험 노트</h2><p>사진으로 문학의 발자취를 기록하고, 인증 후에는 음식과 작품의 이야기를 언제든 다시 읽어 보세요.</p></div><span class="smallpill" id="level">나라 · 노랭크</span></div>
 <div class="panel"><div class="tabs" role="tablist" aria-label="탐험 콘텐츠"><button class="tab" id="tab-quests" role="tab" aria-controls="pane-quests" aria-selected="true" data-tab="quests">🎯 지역별 퀘스트</button><button class="tab" id="tab-stories" role="tab" aria-controls="pane-stories" aria-selected="false" data-tab="stories">📓 나의 여행 이야기</button><button class="tab" id="tab-badges" role="tab" aria-controls="pane-badges" aria-selected="false" data-tab="badges">🏅 여행 도감 · 배지</button><button class="tab" id="tab-culture" role="tab" aria-controls="pane-culture" aria-selected="false" data-tab="culture">📚 지역 문화 백과</button></div>
 <div class="tabbody">
 <div class="tabpane" id="pane-quests" role="tabpanel" aria-labelledby="tab-quests"><div class="paneheader"><div><h3 id="questTitle">나라 퀘스트</h3><p id="questSubtitle">방문 완료 후 퀘스트에 도전할 수 있어요.</p></div><span class="smallpill" id="regionalQuestCount">0 / 3 완료</span></div><div class="progress" aria-label="현재 지역 퀘스트 진행률"><div id="questProgress" style="width:0%"></div></div><div class="questgrid" id="questList"></div><p class="note">※ 사진은 제출 순간에만 미리 보여주며 서버나 브라우저 저장소에 보관하지 않습니다. 선택한 음식·여행 메모와 완료 기록만 이 브라우저에 저장됩니다. 실제 GPS·AI 사진 검증은 없는 시연용 기능입니다.</p></div>
@@ -282,8 +302,8 @@
 <div class="tabpane" id="pane-badges" role="tabpanel" aria-labelledby="tab-badges" hidden><div class="paneheader"><div><h3>나의 여행 도감</h3><p>조건을 달성하면 배지가 자동으로 해금됩니다.</p></div><span class="smallpill" id="badgeCounter">0 / 8 수집</span></div><div class="badges" id="badgeList"></div><p class="note">방문·퀘스트 기록으로 자동 계산되는 디지털 배지입니다. 배지 자체는 추가 포인트를 지급하지 않습니다.</p></div>
 <div class="tabpane" id="pane-culture" role="tabpanel" aria-labelledby="tab-culture" hidden><div class="paneheader"><div><h3>일본 지역 문화 백과사전</h3><p>고대부터 근현대까지 작품·작가·명소와 현지 문화를 살펴보세요.</p></div><span class="smallpill">6개 지역 수록</span></div><div class="encycgrid"><div class="encyclist" id="encycList"></div><article class="encycbody" id="encycBody" aria-live="polite"></article></div></div>
 </div></div></section>
-<div class="bottom"><section class="panel mini mission-story"><h3>📚 QUEST JAPAN이 특별한 이유</h3><h4>책장을 넘기면, 새로운 일본이 펼쳐집니다.</h4><p>QUEST JAPAN은 문학 작품과 실제 지역을 연결해 새로운 여행지를 발견하도록 돕는 게임형 문학 탐방 플랫폼입니다.</p><p>고대의 『만엽집』부터 근대 소설, 에도 시대의 기행문학까지. 작품의 무대와 문학을 기념하는 장소를 찾아가고, 향토 음식과 여행의 소중한 순간을 사진으로 기록하는 퀘스트로 지역 경험을 확장합니다.</p><p>여행자에게는 이야기의 무대를 찾아가는 즐거움을, 지역사회에는 새로운 방문과 문화적 관심을 얻을 기회를 만들어 갑니다. 인기 관광지 밖으로 여행 동선을 넓히는 것이 우리의 목표입니다.</p></section><section class="panel mini leaderboard-panel"><h3>🏆 탐험가 랭킹 <span class="rank-demo-label">시연용 예시</span></h3><p>등록한 닉네임과 획득 XP가 반영됩니다. 다른 여행자는 예시 데이터이며 온라인 공동 랭킹은 아닙니다.</p><ol class="ranking" id="leaderboardList"></ol><p class="rank-footnote">※ 실제 멀티플레이 랭킹과 로그인은 추후 개발 예정</p></section></div>
-</main><footer>QUEST JAPAN · 문학 탐방과 지역사회 활성화 프로젝트 · PROTOTYPE 3.5 · 닉네임/XP 로컬 저장 · 지도: 地球地図日本 / dataofjapan/land</footer>
+<div class="bottom"><section class="panel mini mission-story"><h3>📚 QUEST JAPAN이 특별한 이유</h3><h4>책장을 넘기면, 새로운 일본이 펼쳐집니다.</h4><p>QUEST JAPAN은 문학 작품과 실제 지역을 연결해 새로운 여행지를 발견하도록 돕는 게임형 문학 탐방 플랫폼입니다.</p><p>고대의 『만엽집』부터 근대 소설, 에도 시대의 기행문학까지. 작품의 무대와 문학을 기념하는 장소를 찾아가고, 향토 음식과 여행의 소중한 순간을 사진으로 기록하는 퀘스트로 지역 경험을 확장합니다.</p><p>여행자에게는 이야기의 무대를 찾아가는 즐거움을, 지역사회에는 새로운 방문과 문화적 관심을 얻을 기회를 만들어 갑니다. 인기 관광지 밖으로 여행 동선을 넓히는 것이 우리의 목표입니다.</p></section><section class="panel mini leaderboard-panel"><h3>🏅 지역별 탐험 랭크 <span class="rank-demo-label">내 기록</span></h3><p>지역마다 서로 다른 랭크가 부여돼요. 방문하면 브론즈, 퀘스트를 하나씩 완료할 때마다 실버·골드·챌린저로 성장합니다.</p><div class="region-rank-list" id="leaderboardList" aria-label="6개 지역별 랭크"></div><p class="rank-footnote">※ 랭크는 이 브라우저의 방문·퀘스트 기록으로 계산됩니다. 온라인 공동 랭킹은 아닙니다.</p></section></div>
+</main><footer>QUEST JAPAN · 문학 탐방과 지역사회 활성화 프로젝트 · PROTOTYPE 3.6 · 지역별 랭크 / 닉네임·XP 로컬 저장 · 지도: 地球地図日本 / dataofjapan/land</footer>
 <div class="celebration" id="celebration" hidden role="presentation"><section class="celebration-card" role="dialog" aria-modal="true" aria-labelledby="celebrationTitle" aria-describedby="celebrationDescription"><div class="sparkle-field" id="confetti" aria-hidden="true"></div><button class="celebration-close" id="celebrationClose" type="button" aria-label="축하 창 닫기">×</button><div class="celebration-top" id="celebrationTop">REGION UNLOCKED</div><span class="celebration-emblem" id="celebrationEmblem" aria-hidden="true">🗾</span><h2 id="celebrationTitle">지역 해금!</h2><p class="celebration-description" id="celebrationDescription" style="white-space:pre-line"></p><div class="story-pop" id="storyPopup" hidden><div class="story-tag" id="storyTag"></div><h3 id="storyHeading"></h3><p id="storyText"></p><p class="story-memory" id="storyMemory" hidden></p><a id="storySource" target="_blank" rel="noopener noreferrer" hidden>관련 자료 자세히 보기 ↗</a></div><div class="celebration-score" id="celebrationScore">+400 <small>P</small></div><div class="celebration-factor" id="celebrationFactor">문학 지역 보너스 ×4</div><div class="celebration-badges" id="celebrationBadges"></div><div class="celebration-note" id="celebrationNote">본 화면의 방문·퀘스트 완료는 시연용입니다.</div><div class="celebration-actions" id="celebrationActions" aria-label="해금 후 이동할 화면 선택">
 <button class="primary celebration-action" id="celebrationQuests" type="button">🎯 지역 퀘스트로 이동</button>
 <button class="celebration-action celebration-secondary" id="celebrationAchievements" type="button" hidden>🏅 도전과제 확인하기</button>
@@ -291,7 +311,7 @@
 <div class="tier-modal" id="tierPromotion" hidden role="presentation"><section class="tier-modal-card" role="dialog" aria-modal="true" aria-labelledby="tierCongratsTitle" aria-describedby="tierCongratsText">
  <div class="tier-stars" id="tierStars" aria-hidden="true"></div><div class="tier-modal-kicker">✦ RANK UP ✦</div>
  <div class="player-emblem tier-bronze tier-emblem-large" id="tierCongratsEmblem" aria-hidden="true"><span class="emblem-shine">✦</span><span class="emblem-mark">◆</span></div>
- <div class="tier-congrats-line">새로운 탐험의 단계에 도달했어요!</div><h2 id="tierCongratsTitle">실버 승급!</h2><p id="tierCongratsText">문학의 발자취를 따라 더 넓은 일본을 탐험해 보세요.</p><div class="tier-congrats-xp" id="tierCongratsXp">500 XP 달성</div>
+ <div class="tier-congrats-line">지역 탐험 RANK UP!</div><h2 id="tierCongratsTitle">나라 브론즈 달성!</h2><p id="tierCongratsText">이 지역의 퀘스트를 완료해 다음 랭크를 노려보세요.</p><div class="tier-congrats-xp" id="tierCongratsXp">나라 · 지역 퀘스트 0/3 완료</div>
  <button type="button" id="closeTierPromotion" class="primary tier-close">탐험 계속하기</button>
  </section></div>
 <nav class="mobile-bottom-nav" aria-label="모바일 주요 메뉴">
@@ -352,52 +372,52 @@ const badgeDefs=[
  {icon:'🍃',title:'기행문학 탐험가',desc:'야마가타 퀘스트 3개 완료',test:()=>[0,1,2].every(i=>completed.has('yamagata-'+i))}
 ];
 function calculatePoints(){let sum=0;for(const id of visited)sum+=100*regions[id].mult;for(const item of completed){const id=item.split('-')[0];if(visited.has(id))sum+=25*regions[id].mult}return sum}
-// 3.5: 인증 없이 이 브라우저에서만 사용하는 탐험가 프로필과 티어.
-const nicknameKey='quest-japan-local-nickname-v35';
+// 3.6: 지역별 랭크. 방문 여부 + 해당 지역의 완료 퀘스트 개수만 반영합니다.
+const nicknameKey='quest-japan-local-nickname-v35'; // 기존 닉네임과 호환
 function readNickname(){try{const str=localStorage.getItem(nicknameKey)||'';return typeof str==='string'?str.slice(0,16).trim():''}catch{return ''}}
 let nickname=readNickname();
-// 전체 완료 시 3500 XP. 모든 티어를 실제 퀘스트로 도달 가능하도록 구성합니다.
 const tiers=[
- {id:'bronze',name:'브론즈',jp:'初心者',minimum:0,mark:'◆'},
- {id:'silver',name:'실버',jp:'旅人',minimum:250,mark:'✦'},
- {id:'gold',name:'골드',jp:'探検家',minimum:700,mark:'✧'},
- {id:'platinum',name:'플래티넘',jp:'文学探訪者',minimum:1400,mark:'✦'},
- {id:'diamond',name:'다이아몬드',jp:'日本通',minimum:2300,mark:'✧'},
- {id:'master',name:'마스터',jp:'伝説の旅人',minimum:3300,mark:'✶'}
+ {id:'none',name:'노랭크',jp:'미해금',mark:'○',description:'방문 전'},
+ {id:'bronze',name:'브론즈',jp:'지역 방문',mark:'◆',description:'지역 방문 후 해금'},
+ {id:'silver',name:'실버',jp:'퀘스트 1개',mark:'✦',description:'퀘스트 1개 완료'},
+ {id:'gold',name:'골드',jp:'퀘스트 2개',mark:'★',description:'퀘스트 2개 완료'},
+ {id:'challenger',name:'챌린저',jp:'퀘스트 3개',mark:'✶',description:'퀘스트 3개 모두 완료'}
 ];
-function tierFor(xp){return [...tiers].reverse().find(t=>xp>=t.minimum)||tiers[0]}
-function tierIndex(xp){return tiers.indexOf(tierFor(xp))}
+function regionQuestCount(id){return [0,1,2].filter(i=>completed.has(id+'-'+i)).length}
+function regionRankIndex(id){return !visited.has(id)?0:Math.min(4,1+regionQuestCount(id))}
+function regionRank(id){return tiers[regionRankIndex(id)]}
 function tierEmblem(el,tier){el.className='player-emblem tier-'+tier.id+(el.id==='tierCongratsEmblem'?' tier-emblem-large':'');el.querySelector('.emblem-mark').textContent=tier.mark}
-const fakePlayers=[{name:'여행하는 고양이',xp:2600},{name:'도호쿠 탐험가',xp:1740},{name:'일본 골목 수집가',xp:920}];
 function renderPlayer(){
- const xp=calculatePoints(),tier=tierFor(xp),i=tiers.indexOf(tier),next=tiers[i+1];
+ const xp=calculatePoints();
  $('playerName').textContent=nickname||'게스트 탐험가';
- $('playerTier').textContent=tier.name+' · '+tier.jp;
+ const challengerCount=regionKeys.filter(id=>regionRankIndex(id)===4).length;
+ $('playerTier').textContent=visited.size+'개 지역 해금 · 총 '+completed.size+'개 퀘스트 완료';
  $('playerXp').textContent=xp.toLocaleString()+' XP';
- $('playerNext').textContent=next?'다음 티어까지 '+(next.minimum-xp).toLocaleString()+' XP':'최고 티어 달성!';
- const percent=next?Math.max(0,Math.min(100,((xp-tier.minimum)/(next.minimum-tier.minimum))*100)):100;
+ $('playerNext').textContent='챌린저 '+challengerCount+' / 6 지역';
+ const percent=completed.size/allQuests*100;
  $('playerProgressFill').style.width=percent+'%';$('playerProgress').setAttribute('aria-valuenow',String(Math.round(percent)));
- tierEmblem($('playerEmblem'),tier);
  $('editNickname').textContent=nickname?'닉네임 변경':'닉네임 등록';
- $('level').textContent=tier.mark+' '+tier.name+' · '+tier.jp;
+ $('level').textContent=regions[selected].name+' · '+regionRank(selected).name;
  const list=$('leaderboardList');list.replaceChildren();
- const players=[...fakePlayers.map(p=>({...p,mine:false})),{name:nickname||'게스트 탐험가',xp,mine:true}].sort((a,b)=>b.xp-a.xp);
- players.forEach((p,i)=>{const li=document.createElement('li');if(p.mine)li.classList.add('mine');
-  const who=document.createElement('div');who.className='rank-user';
-  const n=document.createElement('span');n.textContent=i===0?'🥇':i===1?'🥈':i===2?'🥉':'#'+(i+1);
-  const text=document.createElement('span');text.className='rank-name';text.textContent=p.name;
-  const flag=document.createElement('span');flag.className='rank-flag';flag.textContent=p.mine?'내 기록':'예시';
-  const score=document.createElement('b');score.textContent=p.xp.toLocaleString()+' XP';who.append(n,text,flag);li.append(who,score);list.append(li)
+ regionKeys.forEach(id=>{
+   const rank=regionRank(id),row=document.createElement('button');row.type='button';row.className='region-rank-row'+(id===selected?' selected':'');
+   row.setAttribute('aria-label',regions[id].name+' '+rank.name+' · 퀘스트 '+regionQuestCount(id)+'/3 · 선택하기');
+   const emblem=document.createElement('span');emblem.className='rank-symbol rank-'+rank.id;emblem.textContent=rank.mark;
+   const name=document.createElement('span');name.className='region-rank-title';name.textContent=regions[id].name;
+   const status=document.createElement('span');status.className='region-rank-state';status.textContent=rank.name;
+   const q=document.createElement('span');q.className='region-rank-quests';q.textContent=regionQuestCount(id)+'/3';
+   row.append(emblem,name,status,q);row.addEventListener('click',()=>{selectRegion(id);document.querySelector('.details').scrollIntoView({behavior:'smooth',block:'start'})});list.append(row)
  });
 }
-function renderTierGuide(){const g=$('tierGuide');g.replaceChildren();const current=tierIndex(calculatePoints());tiers.forEach((tier,i)=>{
- const step=document.createElement('div');step.className='tier-step'+(i===current?' current':i<current?' passed':'');
+function renderTierGuide(){const g=$('tierGuide');g.replaceChildren();tiers.forEach(tier=>{
+ const step=document.createElement('div');step.className='tier-step';
  const icon=document.createElement('div');icon.className='player-emblem tier-'+tier.id;icon.setAttribute('aria-hidden','true');
  const shine=document.createElement('span');shine.className='emblem-shine';shine.textContent='✦';
  const mark=document.createElement('span');mark.className='emblem-mark';mark.textContent=tier.mark;icon.append(shine,mark);
  const name=document.createElement('strong');name.textContent=tier.name;
- const minimum=document.createElement('small');minimum.textContent=tier.minimum.toLocaleString()+' XP';step.append(icon,name,minimum);g.append(step)
- })}
+ const condition=document.createElement('small');condition.textContent=tier.description;
+ step.append(icon,name,condition);g.append(step)
+})}
 $('editNickname').addEventListener('click',()=>{const f=$('nicknameForm');f.hidden=false;$('nicknameInput').value=nickname;$('nicknameInput').focus()});
 $('cancelNickname').addEventListener('click',()=>{$('nicknameForm').hidden=true});
 $('nicknameForm').addEventListener('submit',e=>{e.preventDefault();const value=$('nicknameInput').value.replace(/\s+/g,' ').trim();
@@ -405,13 +425,15 @@ $('nicknameForm').addEventListener('submit',e=>{e.preventDefault();const value=$
  nickname=value;try{localStorage.setItem(nicknameKey,nickname)}catch{}
  $('nicknameForm').hidden=true;renderPlayer();notify('✨ '+nickname+' 님, QUEST JAPAN에 오신 걸 환영해요!')
 });
-$('toggleTierGuide').addEventListener('click',()=>{const g=$('tierGuide');g.hidden=!g.hidden;$('toggleTierGuide').setAttribute('aria-expanded',String(!g.hidden));$('toggleTierGuide').textContent=g.hidden?'전체 티어 보기 ↓':'티어 목록 닫기 ↑';if(!g.hidden)renderTierGuide()});
+$('toggleTierGuide').addEventListener('click',()=>{const g=$('tierGuide');g.hidden=!g.hidden;$('toggleTierGuide').setAttribute('aria-expanded',String(!g.hidden));$('toggleTierGuide').textContent=g.hidden?'지역 랭크 기준 보기 ↓':'랭크 기준 닫기 ↑';if(!g.hidden)renderTierGuide()});
 let pendingTier=null,tierReturnFocus=null,tierPopupTimer=null;
-function queueTierBeforeReward(oldXp,newXp){const oldRank=tierIndex(oldXp),newRank=tierIndex(newXp);if(newRank>oldRank)pendingTier=tiers[newRank]}
-function openTierPromotion(tier){
+function queueTierBeforeReward(id,previous){const current=regionRankIndex(id);if(current>previous)pendingTier={id,tier:tiers[current]}}
+function openTierPromotion(promotion){
+ const {id,tier}=promotion;
  tierReturnFocus=document.activeElement;tierEmblem($('tierCongratsEmblem'),tier);
- $('tierCongratsTitle').textContent=tier.name+' 승급!';$('tierCongratsText').textContent=(nickname||'탐험가')+' 님, 문학의 발자취를 따라 새로운 등급에 도달했어요.';
- $('tierCongratsXp').textContent='현재 경험치 '+calculatePoints().toLocaleString()+' XP';
+ $('tierCongratsTitle').textContent=regions[id].name+' '+tier.name+' 달성!';
+ $('tierCongratsText').textContent=tier.id==='bronze'?'새로운 지역을 해금했어요! 이곳의 문학 퀘스트에 도전해 보세요.':tier.id==='challenger'?'축하해요! '+regions[id].name+'의 모든 퀘스트를 완료한 챌린저예요.':'해당 지역의 문학 탐험이 한 단계 깊어졌어요. 다음 퀘스트에 도전해 보세요.';
+ $('tierCongratsXp').textContent=regions[id].name+' 지역 퀘스트 '+regionQuestCount(id)+' / 3 완료';
  const stars=$('tierStars');stars.replaceChildren();for(let i=0;i<23;i++){const star=document.createElement('span');star.className='tier-star';star.textContent=i%4===0?'✧':'✦';star.style.setProperty('--x',(7+(i*37)%88)+'%');star.style.setProperty('--y',(4+(i*23)%90)+'%');star.style.setProperty('--size',(10+(i*7)%20)+'px');star.style.setProperty('--delay',((i%7)*.17)+'s');stars.append(star)}
  $('tierPromotion').hidden=false;document.body.classList.add('dialog-open');$('closeTierPromotion').focus()
 }
@@ -425,9 +447,15 @@ function render(){
  const r=regions[selected],score=calculatePoints();
  $('regionName').textContent=r.name;$('regionJp').textContent=r.jp;$('multiplier').textContent='✨ 문학 지역 탐방 보너스 ×'+r.mult;$('description').textContent=r.desc;$('attraction').textContent=r.attraction;$('food').textContent=r.food;$('culture').textContent=r.culture;$('reward').textContent=`기본 100 P × ${r.mult} = ${(r.mult*100).toLocaleString()} P`;
  $('visitBtn').disabled=visited.has(selected);$('visitBtn').textContent=visited.has(selected)?'✓ 방문 완료! 퀘스트에 도전하세요':'이 지역 방문 체험하기';
+ const currentRank=regionRank(selected);
+ $('regionRankIcon').className='rank-symbol rank-'+currentRank.id;$('regionRankIcon').textContent=currentRank.mark;
+ $('regionRankName').textContent=currentRank.name+(currentRank.id==='none'?' · 지역 미해금':' · '+r.name+' 지역 랭크');
+ $('regionRankHint').textContent=currentRank.id==='none'?'방문 체험으로 브론즈를 획득하세요.':currentRank.id==='challenger'?'이 지역의 모든 퀘스트를 완료했어요!':'다음 퀘스트를 완료해 랭크를 올려 보세요.';
+ $('regionRankSteps').textContent=regionQuestCount(selected)+' / 3';
+ $('regionRankBanner').className='region-rank-banner rank-highlight-'+currentRank.id;
  $('points').textContent=score.toLocaleString()+' P';$('count').textContent=visited.size+' / 6';$('questCount').textContent=completed.size+' / '+allQuests;
  renderPlayer();if(!$('tierGuide').hidden)renderTierGuide();
- document.querySelectorAll('#japanMap .marker').forEach(m=>{m.classList.toggle('active',m.dataset.id===selected);m.classList.toggle('done',visited.has(m.dataset.id))});
+ document.querySelectorAll('#japanMap .marker').forEach(m=>{const id=m.dataset.id;const rank=regionRank(id);m.classList.toggle('active',id===selected);m.classList.toggle('done',visited.has(id));m.setAttribute('aria-label',regions[id].name+' · '+rank.name+' · 지역 선택');const medal=m.querySelector('.map-rank-symbol');if(medal){medal.className.baseVal='map-rank-symbol map-rank-'+rank.id;medal.textContent=rank.mark}const plate=m.querySelector('.map-rank-disc');if(plate)plate.className.baseVal='map-rank-disc map-rank-'+rank.id;const title=m.querySelector('title');if(title)title.textContent=regions[id].name+' · '+rank.name+' · 클릭해 퀘스트 보기'});
  document.querySelectorAll('#japanMap .pref').forEach(p=>{p.classList.toggle('chosen',p.dataset.region===selected);p.classList.toggle('unlocked',visited.has(p.dataset.region))});
  renderQuests();renderStoryArchive();renderBadges();renderCulture();
  document.querySelectorAll('[data-mobile-region]').forEach(b=>{
@@ -441,7 +469,7 @@ function renderQuests(){
  const id=selected,r=regions[id],isVisited=visited.has(id),count=r.quests.filter((_,i)=>completed.has(id+'-'+i)).length;
  $('questTitle').textContent=r.name+' 문학·지역 퀘스트';
  $('questSubtitle').textContent=isVisited?'음식·문학·가장 즐거웠던 순간을 사진으로 기록하고, 이야기를 수집해 보세요.':'먼저 「이 지역 방문 체험하기」 버튼으로 지역을 해금하세요.';
- $('regionalQuestCount').textContent=count+' / 3 완료';$('questProgress').style.width=(count/3*100)+'%';
+ $('regionalQuestCount').textContent=regionRank(id).mark+' '+regionRank(id).name+' · '+count+' / 3';$('questProgress').style.width=(count/3*100)+'%';
  const list=$('questList');list.replaceChildren();
  r.quests.forEach(([title,desc],i)=>{
   const key=id+'-'+i,done=completed.has(key),card=document.createElement('article');card.className='questcard photoquest'+(done?' done':'');
@@ -500,7 +528,7 @@ function renderQuests(){
 }
 function completeQuest(key){
  const [id,ix]=key.split('-');if(!visited.has(id)||completed.has(key))return;
- const before=badgeDefs.map(b=>b.test()),oldXp=calculatePoints();completed.add(key);save();queueTierBeforeReward(oldXp,calculatePoints());render();
+ const before=badgeDefs.map(b=>b.test()),oldRank=regionRankIndex(id);completed.add(key);save();queueTierBeforeReward(id,oldRank);render();
  const gained=25*regions[id].mult,newBadges=badgeDefs.filter((b,i)=>!before[i]&&b.test());
  showCelebration({type:'quest',id,index:Number(ix),points:gained,badges:newBadges});
 }
@@ -510,7 +538,7 @@ function renderCulture(){const list=$('encycList');list.replaceChildren();region
 function setTab(name){if(!['quests','stories','badges','culture'].includes(name))return;activeTab=name;document.querySelectorAll('.tab').forEach(t=>{t.setAttribute('aria-selected',String(t.dataset.tab===name))});document.querySelectorAll('.tabpane').forEach(p=>{p.hidden=p.id!=='pane-'+name});syncMobileNav(name)}
 document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>setTab(btn.dataset.tab)));
 let pendingVisitCelebration=null;
-$('visitBtn').addEventListener('click',()=>{if(visited.has(selected))return;const before=badgeDefs.map(b=>b.test()),id=selected,oldXp=calculatePoints();visited.add(id);save();queueTierBeforeReward(oldXp,calculatePoints());render();animateRegionUnlock(id);const newBadges=badgeDefs.filter((b,i)=>!before[i]&&b.test());clearTimeout(pendingVisitCelebration);pendingVisitCelebration=setTimeout(()=>{pendingVisitCelebration=null;showCelebration({type:'visit',id,points:100*regions[id].mult,badges:newBadges})},850)});
+$('visitBtn').addEventListener('click',()=>{if(visited.has(selected))return;const before=badgeDefs.map(b=>b.test()),id=selected,oldRank=regionRankIndex(id);visited.add(id);save();queueTierBeforeReward(id,oldRank);render();animateRegionUnlock(id);const newBadges=badgeDefs.filter((b,i)=>!before[i]&&b.test());clearTimeout(pendingVisitCelebration);pendingVisitCelebration=setTimeout(()=>{pendingVisitCelebration=null;showCelebration({type:'visit',id,points:100*regions[id].mult,badges:newBadges})},850)});
 // 해금 및 사진 인증 후 원하는 화면으로 이동합니다.
 let celebrationState=null,lastFocused=null;
 function animateRegionUnlock(id){
@@ -596,7 +624,7 @@ document.querySelectorAll('[data-bonus-region]').forEach(card=>card.addEventList
  const id=card.dataset.bonusRegion;selectRegion(id);document.querySelector('.layout').scrollIntoView({behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});
 }));
 $('resetDemo').addEventListener('click',()=>{
- if(!window.confirm('문학 탐방 시연을 위해 6개 지역 방문 기록과 18개 퀘스트 인증 기록 및 XP를 초기화할까요? 닉네임은 유지됩니다.'))return;
+ if(!window.confirm('6개 지역 방문·퀘스트 기록, 포인트, 지역별 랭크를 초기화할까요? 닉네임은 유지됩니다.'))return;
  clearTimeout(pendingVisitCelebration);pendingVisitCelebration=null;pendingTier=null;clearTimeout(tierPopupTimer);tierPopupTimer=null;if(!$('tierPromotion').hidden)closeTierPromotion();
  if(!$('celebration').hidden)closeCelebration(false);
  visited.clear();completed.clear();Object.keys(questNotes).forEach(key=>delete questNotes[key]);save();selected='nara';setTab('quests');
@@ -739,7 +767,7 @@ function identifyPrefecture(properties){
    const center=markerCenters.get(id);
    if(!center)return;
    const [x,y]=center;
-   const width=label.length*11+22,height=27;
+   const width=label.length*11+42,height=27;
    const left=labelX-width/2,right=labelX+width/2,top=labelY-height/2,bottom=labelY+height/2;
    // 위치에서 가장 가까운 라벨 테두리까지 선을 연결하되 라벨 내부는 지나지 않도록 합니다.
    const endX=Math.max(left+8,Math.min(x,right-8));
@@ -747,7 +775,10 @@ function identifyPrefecture(properties){
    const gLine=el('path',{class:'sea-leader',d:`M${x.toFixed(2)} ${y.toFixed(2)} L${endX.toFixed(2)} ${endY.toFixed(2)}`},lineLayer);
    const g=el('g',{class:'marker','data-id':id,tabindex:'0',role:'button','aria-label':`${label} 지역 퀘스트`},pinLayer);
    el('rect',{class:'labelbg',x:left,y:top,width,height,rx:7},g);
-   const text=el('text',{class:'pinlabel',x:labelX,y:labelY+4,'text-anchor':'middle'},g);text.textContent=label;
+   const text=el('text',{class:'pinlabel',x:labelX-10,y:labelY+4,'text-anchor':'middle'},g);text.textContent=label;
+   const badgeX=right-13;
+   el('circle',{class:'map-rank-disc map-rank-none',cx:badgeX,cy:labelY,r:9},g);
+   const badge=el('text',{class:'map-rank-symbol map-rank-none',x:badgeX,y:labelY+3.3,'text-anchor':'middle'},g);badge.textContent='○';
    el('circle',{class:'outer',cx:x,cy:y,r:3.8},g);el('circle',{class:'inner',cx:x,cy:y,r:1.3},g);el('circle',{class:'hit-area',cx:x,cy:y,r:12},g);
    const pref=prefecturesByCode.get([...missionByPrefecture].find(([,regionId])=>regionId===id)[0]);
    const title=el('title',{},g);title.textContent=describePrefecture(pref)+' · 클릭해 퀘스트 보기';
