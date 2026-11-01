@@ -94,6 +94,83 @@
 .story-pop a{display:inline-block;color:#2f785a;font-size:12px;font-weight:800;margin-top:12px;}
 .tabs .tab{min-width:110px;}
 @media(max-width:720px){.story-archive{grid-template-columns:1fr}.tabs .tab{flex:1 1 42%;min-width:0}.story-pop{max-height:32vh}.story-pop h3{font-size:16px}}
+
+/* QUEST JAPAN 3.2 — 스마트폰 UI / 터치 지도 / 모바일 내비게이션 */
+.map-tools{position:absolute;z-index:7;right:12px;top:54px;display:flex;flex-direction:column;gap:5px}
+.map-tools button{width:39px;height:39px;border:1px solid #c9dacc;background:rgba(255,255,251,.96);color:#285e49;border-radius:11px;box-shadow:0 3px 10px #204a341c;font-weight:900;font-size:22px;cursor:pointer;touch-action:manipulation}
+.map-tools button.map-reset{font-size:12px}
+.map-tools button:disabled{opacity:.45;cursor:default}
+.map-tools button:focus-visible{outline:3px solid #68a48a;outline-offset:2px}
+.mapbox.zoomed svg{cursor:grab}
+.mapbox.zoomed svg:active{cursor:grabbing}
+.mobile-region-picker,.mobile-bottom-nav{display:none}
+.photo-actions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}
+.photo-actions .photo-label{padding:13px 9px;min-height:46px;display:flex;align-items:center;justify-content:center}
+.hero,.panel,.bonus-card,.questcard{min-width:0}
+@media(max-width:720px){
+ html{scroll-padding-top:12px}
+ body{padding-bottom:calc(79px + env(safe-area-inset-bottom,0px));overflow-x:hidden}
+ .headerin{padding:13px 16px}
+ .logo{font-size:21px}.tagline{font-size:11px}
+ .wrap{padding:16px 11px 22px}
+ .hero{margin-bottom:15px;gap:12px}
+ .hero h1{font-size:clamp(23px,6.3vw,29px);line-height:1.4}
+ .hero p{font-size:12px;line-height:1.75}
+ .stats{gap:6px}.stat{padding:10px 7px;border-radius:12px}
+ .stat strong{font-size:clamp(15px,4.8vw,20px)}.stat small{font-size:10px;line-height:1.4}
+ .layout{gap:13px}
+ .panel{border-radius:17px}
+ .paneltop{padding:16px 15px 0}
+ .paneltop h2{font-size:17px}.paneltop p{font-size:11px;line-height:1.5}
+ .mapbox{margin:9px 8px 3px;min-height:0!important;height:clamp(310px,101vw,490px)!important;border-radius:12px;overflow:hidden}
+ .mapbox svg{height:100%!important;min-height:0!important;width:100%;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+ .mapbox.zoomed svg{touch-action:none}
+ .mapnote{top:auto;bottom:8px;left:8px;right:8px;max-width:none;text-align:center;font-size:9px;padding:7px 6px;line-height:1.4}
+ .map-tools{top:9px;right:9px;flex-direction:row;gap:4px}
+ .map-tools button{min-height:37px;width:37px;height:37px;border-radius:9px;font-size:21px}
+ .map-tools button.map-reset{width:40px;font-size:11px}
+ .mapstatus{margin:9px 8px 0;padding:9px 10px;font-size:10px;line-height:1.5}
+ .mobile-region-picker{display:block;padding:11px 11px 15px}
+ .mobile-region-picker>p{margin:0 0 9px;font-weight:800;font-size:12px;color:#48745f}
+ .mobile-region-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:7px}
+ .mobile-region-button{border:1px solid #cbdccd;background:#fffdf9;color:#32644f;border-radius:10px;min-height:42px;padding:8px 4px;font-weight:850;font-size:12px;cursor:pointer}
+ .mobile-region-button small{font-size:10px;color:#729181;font-weight:700}
+ .mobile-region-button.selected{background:#e4f3e6;border-color:#45896b;box-shadow:inset 0 0 0 1px #45896b}
+ .mobile-region-button.visited::before{content:'✓ ';color:#27825a}
+ .mobile-region-cta{display:block;width:100%;margin-top:9px;min-height:42px;background:#377d61;border:0;color:white;border-radius:10px;font-weight:800;font-size:13px;cursor:pointer}
+ .details{padding:19px 16px;scroll-margin-top:10px}
+ .details h2{font-size:28px}.details .visit{min-height:50px}
+ .facts{gap:13px}.fact strong{overflow-wrap:anywhere}
+ .bonus-section{margin-top:15px}
+ .sectionhead{gap:10px;flex-wrap:wrap}
+ .sectionhead h2{font-size:20px}
+ .dashboard{scroll-margin-top:10px}
+ .tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px;padding:7px}
+ .tabs .tab{min-width:0;min-height:44px;padding:9px 4px;font-size:12px}
+ .tabbody{padding:14px 11px}
+ .paneheader{align-items:flex-start;gap:7px;flex-wrap:wrap}
+ .paneheader h3{font-size:18px}
+ .questcard{padding:15px}
+ .questcard>button,.story-review,.visit,.reset-demo{min-height:46px}
+ .photo-actions .photo-label{font-size:12px;line-height:1.35;touch-action:manipulation}
+ .photoquest .photo-uploader{padding:11px}
+ .mobile-bottom-nav{display:grid;position:fixed;left:0;right:0;bottom:0;z-index:55;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;background:rgba(255,253,247,.98);box-shadow:0 -4px 21px #183b3022;border-top:1px solid #d4e3d6;padding:6px 6px calc(7px + env(safe-area-inset-bottom,0px));backdrop-filter:blur(12px)}
+ .mobile-bottom-nav button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:transparent;border:0;border-radius:10px;min-width:0;min-height:48px;color:#6b8576;font-size:10px;font-weight:800;padding:3px 1px;cursor:pointer}
+ .mobile-bottom-nav button span:first-child{font-size:20px;line-height:1.2}
+ .mobile-bottom-nav button[aria-current="page"]{color:#1f684b;background:#e9f5e9}
+ .mobile-bottom-nav button:focus-visible{outline:2px solid #3f8868;outline-offset:-2px}
+ .celebration{padding:10px 12px calc(16px + env(safe-area-inset-bottom,0px))}
+ .celebration-card{max-height:calc(100dvh - 24px);border-radius:20px}
+ .celebration-actions button{min-height:48px}
+ .toast{bottom:calc(83px + env(safe-area-inset-bottom,0px))!important}
+}
+@media(max-width:390px){
+ .stats .stat{padding:9px 5px}.stat strong{font-size:15px}
+ .mobile-bottom-nav button{font-size:9px}
+ .photo-actions{grid-template-columns:1fr}
+}
+@media(min-width:721px){.map-tools{top:57px}}
+
 </style>
 </head>
 <body>
@@ -101,7 +178,25 @@
 <main class="wrap">
 <section class="hero"><div><div class="eyebrow" style="margin-bottom:10px">LITERARY JOURNEY · 文学でめぐる日本</div><h1>책장을 넘기면, 새로운 일본이 펼쳐집니다.</h1><p>고대의 시가부터 근대 소설까지, 작품의 발자취를 따라 직접 여행하고 사진으로 기록하세요. 문학을 통해 지역을 발견하고, 지역으로 향하는 발걸음에 보상을 더합니다.</p></div><div class="stats"><div class="stat"><strong id="points">0 P</strong><small>총 획득 포인트</small></div><div class="stat"><strong id="count">0 / 6</strong><small>방문 완료 지역</small></div><div class="stat"><strong id="questCount">0 / 18</strong><small>완료한 퀘스트</small></div></div></section>
 <div class="layout">
-<section class="panel"><div class="paneltop"><h2>🗾 문학 탐험 지도</h2><p>지도나 바다 위 지역명 라벨을 눌러 문학 여행을 시작해 보세요. 각 도도부현에 마우스를 올리면 살짝 떠오릅니다.</p></div><div class="mapstatus" id="mapStatus" role="status" aria-live="polite"><span class="legenddot"></span><span>도도부현에 커서를 올리면 강조되고 이름이 표시됩니다. 바다 위 이름표도 클릭할 수 있어요.</span></div><div class="mapbox"><svg id="japanMap" viewBox="0 0 660 560" role="img" aria-label="일본 47개 도도부현 지도"><text x="120" y="270" fill="#698477">일본 지도 데이터를 불러오는 중...</text></svg><div class="mapnote">● 47개 도도부현 · 방문 지역은 초록색 · 문학 탐방 대상 6곳 · 인터넷 연결 필요</div></div></section>
+<section class="panel"><div class="paneltop"><h2>🗾 문학 탐험 지도</h2><p>지도나 바다 위 지역명 라벨을 눌러 문학 여행을 시작해 보세요. 각 도도부현에 마우스를 올리면 살짝 떠오릅니다.</p></div><div class="mapstatus" id="mapStatus" role="status" aria-live="polite"><span class="legenddot"></span><span>도도부현에 커서를 올리면 강조되고 이름이 표시됩니다. 바다 위 이름표도 클릭할 수 있어요.</span></div><div class="mapbox" id="mapViewport">
+  <div class="map-tools" aria-label="지도 확대와 이동">
+    <button type="button" id="mapZoomIn" title="지도 확대" aria-label="지도 확대">＋</button>
+    <button type="button" id="mapZoomOut" title="지도 축소" aria-label="지도 축소">−</button>
+    <button type="button" id="mapZoomReset" class="map-reset" title="지도 전체 보기">전체</button>
+  </div>
+  <svg id="japanMap" viewBox="0 0 660 560" role="img" aria-label="일본 47개 도도부현 지도"><text x="120" y="270" fill="#698477">일본 지도 데이터를 불러오는 중...</text></svg><div class="mapnote">● 47개 도도부현 · 방문 지역은 초록색 · 문학 탐방 6곳 · 두 손가락 확대 또는 +/- 사용</div></div>
+ <div class="mobile-region-picker" aria-label="탐험할 지역 바로 선택">
+  <p>지역을 선택해 문학 탐험을 시작해 보세요</p>
+  <div class="mobile-region-grid">
+   <button type="button" class="mobile-region-button" data-mobile-region="tokyo">도쿄 <small>×1</small></button>
+   <button type="button" class="mobile-region-button" data-mobile-region="osaka">오사카 <small>×1</small></button>
+   <button type="button" class="mobile-region-button" data-mobile-region="kyoto">교토 <small>×2</small></button>
+   <button type="button" class="mobile-region-button" data-mobile-region="nara">나라 <small>×4</small></button>
+   <button type="button" class="mobile-region-button" data-mobile-region="matsuyama">마쓰야마 <small>×4</small></button>
+   <button type="button" class="mobile-region-button" data-mobile-region="yamagata">야마가타 <small>×8</small></button>
+  </div>
+  <button type="button" class="mobile-region-cta" id="mobileRegionDetail">현재 선택한 지역 확인하기 <span aria-hidden="true">↓</span></button>
+ </div></section>
 <section class="panel details"><div class="eyebrow">REGION QUEST</div><h2 id="regionName">나라</h2><div class="jp" id="regionJp">奈良県 · 아스카촌</div><div class="mult" id="multiplier">✨ 문학 지역 탐방 보너스 ×4</div><p class="desc" id="description"></p><div class="facts"><div class="fact"><label>📖 문학 탐방 명소</label><strong id="attraction"></strong></div><div class="fact"><label>🍜 선택할 수 있는 향토 음식</label><strong id="food"></strong></div><div class="fact"><label>📜 문학 작품과 시대</label><strong id="culture"></strong></div><div class="fact"><label>🏆 방문 보상</label><strong id="reward"></strong></div></div><button class="primary visit" id="visitBtn">이 지역 방문 체험하기</button><div class="demo-controls"><button type="button" class="reset-demo" id="resetDemo">↻ 처음부터 다시 시연하기</button><p class="demo-help">방문·퀘스트·포인트·배지를 초기화해 해금 애니메이션을 다시 볼 수 있어요.</p></div><p class="note center">시연용 방문 해금입니다. GPS 위치 검증은 아직 구현되지 않았습니다. 퀘스트에는 사진 파일이 필요합니다.</p></section>
 </div>
 
@@ -123,11 +218,18 @@
 <div class="tabpane" id="pane-culture" role="tabpanel" aria-labelledby="tab-culture" hidden><div class="paneheader"><div><h3>일본 지역 문화 백과사전</h3><p>고대부터 근현대까지 작품·작가·명소와 현지 문화를 살펴보세요.</p></div><span class="smallpill">6개 지역 수록</span></div><div class="encycgrid"><div class="encyclist" id="encycList"></div><article class="encycbody" id="encycBody" aria-live="polite"></article></div></div>
 </div></div></section>
 <div class="bottom"><section class="panel mini mission-story"><h3>📚 QUEST JAPAN이 특별한 이유</h3><h4>책장을 넘기면, 새로운 일본이 펼쳐집니다.</h4><p>QUEST JAPAN은 문학 작품과 실제 지역을 연결해 새로운 여행지를 발견하도록 돕는 게임형 문학 탐방 플랫폼입니다.</p><p>고대의 『만엽집』부터 근대 소설, 에도 시대의 기행문학까지. 작품의 무대와 문학을 기념하는 장소를 찾아가고, 향토 음식과 여행의 소중한 순간을 사진으로 기록하는 퀘스트로 지역 경험을 확장합니다.</p><p>여행자에게는 이야기의 무대를 찾아가는 즐거움을, 지역사회에는 새로운 방문과 문화적 관심을 얻을 기회를 만들어 갑니다. 인기 관광지 밖으로 여행 동선을 넓히는 것이 우리의 목표입니다.</p></section><section class="panel mini"><h3>🏆 탐험가 랭킹 <span style="font-size:11px;color:#9baa9d">(예시 데이터)</span></h3><ol class="ranking"><li><span>🥇 여행하는 고양이</span><b>3,400 P</b></li><li><span>🥈 도호쿠 탐험가</span><b>2,100 P</b></li><li><span>🥉 일본 골목 수집가</span><b>1,500 P</b></li><li><span>🧭 나의 탐험 기록</span><b id="myRank">0 P</b></li></ol></section></div>
-</main><footer>QUEST JAPAN · 문학 탐방과 지역사회 활성화 프로젝트 · PROTOTYPE 3.1 · 지도: 地球地図日本 / dataofjapan/land</footer>
+</main><footer>QUEST JAPAN · 문학 탐방과 지역사회 활성화 프로젝트 · PROTOTYPE 3.2 · 지도: 地球地図日本 / dataofjapan/land</footer>
 <div class="celebration" id="celebration" hidden role="presentation"><section class="celebration-card" role="dialog" aria-modal="true" aria-labelledby="celebrationTitle" aria-describedby="celebrationDescription"><div class="sparkle-field" id="confetti" aria-hidden="true"></div><button class="celebration-close" id="celebrationClose" type="button" aria-label="축하 창 닫기">×</button><div class="celebration-top" id="celebrationTop">REGION UNLOCKED</div><span class="celebration-emblem" id="celebrationEmblem" aria-hidden="true">🗾</span><h2 id="celebrationTitle">지역 해금!</h2><p class="celebration-description" id="celebrationDescription" style="white-space:pre-line"></p><div class="story-pop" id="storyPopup" hidden><div class="story-tag" id="storyTag"></div><h3 id="storyHeading"></h3><p id="storyText"></p><p class="story-memory" id="storyMemory" hidden></p><a id="storySource" target="_blank" rel="noopener noreferrer" hidden>관련 자료 자세히 보기 ↗</a></div><div class="celebration-score" id="celebrationScore">+1,000 <small>P</small></div><div class="celebration-factor" id="celebrationFactor">아키타 보너스 ×10</div><div class="celebration-badges" id="celebrationBadges"></div><div class="celebration-note" id="celebrationNote">본 화면의 방문·퀘스트 완료는 시연용입니다.</div><div class="celebration-actions" id="celebrationActions" aria-label="해금 후 이동할 화면 선택">
 <button class="primary celebration-action" id="celebrationQuests" type="button">🎯 지역 퀘스트로 이동</button>
 <button class="celebration-action celebration-secondary" id="celebrationAchievements" type="button" hidden>🏅 도전과제 확인하기</button>
 </div></section></div>
+<nav class="mobile-bottom-nav" aria-label="모바일 주요 메뉴">
+<button type="button" data-mobile-nav="map" aria-current="page"><span aria-hidden="true">🗾</span><span>지도</span></button>
+<button type="button" data-mobile-nav="quests"><span aria-hidden="true">🎯</span><span>퀘스트</span></button>
+<button type="button" data-mobile-nav="stories"><span aria-hidden="true">📓</span><span>여행 기록</span></button>
+<button type="button" data-mobile-nav="badges"><span aria-hidden="true">🏅</span><span>도감</span></button>
+<button type="button" data-mobile-nav="culture"><span aria-hidden="true">📚</span><span>문학·문화</span></button>
+</nav>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 'use strict';
@@ -190,6 +292,11 @@ function render(){
  document.querySelectorAll('#japanMap .marker').forEach(m=>{m.classList.toggle('active',m.dataset.id===selected);m.classList.toggle('done',visited.has(m.dataset.id))});
  document.querySelectorAll('#japanMap .pref').forEach(p=>{p.classList.toggle('chosen',p.dataset.region===selected);p.classList.toggle('unlocked',visited.has(p.dataset.region))});
  renderQuests();renderStoryArchive();renderBadges();renderCulture();
+ document.querySelectorAll('[data-mobile-region]').forEach(b=>{
+  b.classList.toggle('selected',b.dataset.mobileRegion===selected);
+  b.setAttribute('aria-pressed',String(b.dataset.mobileRegion===selected));
+  b.classList.toggle('visited',visited.has(b.dataset.mobileRegion));
+ });
 }
 function selectRegion(id){if(!regions[id])return;selected=id;render()}
 function renderQuests(){
@@ -219,21 +326,30 @@ function renderQuests(){
    memo=document.createElement('textarea');memo.className='memory-note';memo.maxLength=200;memo.rows=3;memo.placeholder='예: 우연히 만난 작은 찻집에서 행복한 오후를 보냈다.';memo.disabled=!isVisited;
    uploader.append(label,memo);
   }
-  const lab=document.createElement('label');lab.className='photo-label';lab.textContent='📸 인증 사진 선택 / 카메라 촬영';
-  const input=document.createElement('input');input.type='file';input.accept='image/*';input.className='photo-input';input.setAttribute('aria-label',r.name+' '+title+' 인증 사진');input.disabled=!isVisited;
+  // iOS/Android에서 카메라와 앨범 선택을 별도 입력으로 제공해 파일 앱 미리보기 문제를 줄입니다.
+  const photos=document.createElement('div');photos.className='photo-actions';
+  const inputs=[];
+  for(const [caption,camera] of [['📸 바로 촬영',true],['🖼️ 앨범에서 선택',false]]){
+   const lab=document.createElement('label');lab.className='photo-label';lab.textContent=caption;
+   const input=document.createElement('input');input.type='file';input.accept='image/*';
+   if(camera)input.setAttribute('capture','environment');
+   input.className='photo-input';input.setAttribute('aria-label',r.name+' '+title+' '+caption);input.disabled=!isVisited;
+   lab.append(input);photos.append(lab);inputs.push(input);
+  }
   const preview=document.createElement('img');preview.className='photo-preview';preview.alt='선택한 퀘스트 사진 미리보기';preview.hidden=true;
   const photoName=document.createElement('div');photoName.className='photo-hint';photoName.textContent=isVisited?'사진을 선택해 주세요. (15MB 이하, 원본 저장 안 함)':'🔒 지역 해금 후 사진 업로드 가능';
   const btn=document.createElement('button');btn.type='button';btn.disabled=true;btn.textContent=isVisited?'사진으로 퀘스트 인증하기':'🔒 방문 후 해금';
   let file=null,objectUrl=null;
   function ready(){btn.disabled=!isVisited||!file||(i===0&&!choice.value)}
   if(choice)choice.addEventListener('change',ready);
-  input.addEventListener('change',()=>{
+  inputs.forEach(input=>input.addEventListener('change',()=>{
    if(objectUrl){URL.revokeObjectURL(objectUrl);objectUrl=null}
    file=input.files?.[0]||null;preview.hidden=true;
    if(!file){photoName.textContent='사진을 선택해 주세요.';ready();return}
    if((file.type&&!file.type.startsWith('image/'))||file.size>15*1024*1024){file=null;input.value='';photoName.textContent='15MB 이하 이미지 파일만 선택해 주세요.';ready();return}
+   for(const other of inputs){if(other!==input)other.value=''}
    photoName.textContent=file.name+' · 미리보기 준비 완료';objectUrl=URL.createObjectURL(file);preview.src=objectUrl;preview.hidden=false;ready();
-  });
+  }));
   btn.addEventListener('click',()=>{
    if(!file||!isVisited||completed.has(key)||(i===0&&!choice.value))return;
    if(i===0)questNotes[key]={food:choice.value};
@@ -241,7 +357,7 @@ function renderQuests(){
    if(objectUrl){URL.revokeObjectURL(objectUrl);objectUrl=null}
    completeQuest(key);
   });
-  lab.append(input);uploader.append(lab,preview,photoName);card.append(uploader,btn);list.append(card);
+  uploader.append(photos,preview,photoName);card.append(uploader,btn);list.append(card);
  });
 }
 function completeQuest(key){
@@ -253,7 +369,7 @@ function completeQuest(key){
 function renderBadges(){const list=$('badgeList');list.replaceChildren();let earned=0;badgeDefs.forEach(b=>{const done=b.test();if(done)earned++;const card=document.createElement('div');card.className='badgecard'+(done?' earned':'');const icon=document.createElement('span');icon.className='badgeicon';icon.textContent=b.icon;const title=document.createElement('strong');title.textContent=b.title;const desc=document.createElement('p');desc.textContent=b.desc;const flag=document.createElement('div');flag.className='badgeflag';flag.textContent=done?'✓ 획득 완료':'🔒 미획득';card.append(icon,title,desc,flag);list.append(card)});$('badgeCounter').textContent=earned+' / '+badgeDefs.length+' 수집'}
 function renderCulture(){const list=$('encycList');list.replaceChildren();regionKeys.forEach(id=>{const b=document.createElement('button');b.type='button';b.className='encbtn';b.textContent=regions[id].name+(regions[id].mult>1?' · ×'+regions[id].mult:'');b.setAttribute('aria-pressed',String(id===selected));b.addEventListener('click',()=>selectRegion(id));list.append(b)});
  const r=regions[selected],body=$('encycBody');body.replaceChildren();const heading=document.createElement('h4');heading.textContent=r.name+' · 지역 문화 이야기';const intro=document.createElement('p');intro.className='encycintro';intro.textContent=r.jp+' | '+r.desc;const entries=document.createElement('div');entries.className='entries';[['🍜 음식',r.encyclopedia.food],['🎎 역사와 축제',r.encyclopedia.heritage],['💬 언어와 문학',r.encyclopedia.language],['📖 문학 탐방 명소',r.attraction]].forEach(([title,detail])=>{const section=document.createElement('section');section.className='entry';const h=document.createElement('h5');h.textContent=title;const p=document.createElement('p');p.textContent=detail;section.append(h,p);entries.append(section)});body.append(heading,intro,entries)}
-function setTab(name){if(!['quests','stories','badges','culture'].includes(name))return;activeTab=name;document.querySelectorAll('.tab').forEach(t=>{t.setAttribute('aria-selected',String(t.dataset.tab===name))});document.querySelectorAll('.tabpane').forEach(p=>{p.hidden=p.id!=='pane-'+name})}
+function setTab(name){if(!['quests','stories','badges','culture'].includes(name))return;activeTab=name;document.querySelectorAll('.tab').forEach(t=>{t.setAttribute('aria-selected',String(t.dataset.tab===name))});document.querySelectorAll('.tabpane').forEach(p=>{p.hidden=p.id!=='pane-'+name});syncMobileNav(name)}
 document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>setTab(btn.dataset.tab)));
 let pendingVisitCelebration=null;
 $('visitBtn').addEventListener('click',()=>{if(visited.has(selected))return;const before=badgeDefs.map(b=>b.test()),id=selected;visited.add(id);save();render();animateRegionUnlock(id);const newBadges=badgeDefs.filter((b,i)=>!before[i]&&b.test());clearTimeout(pendingVisitCelebration);pendingVisitCelebration=setTimeout(()=>{pendingVisitCelebration=null;showCelebration({type:'visit',id,points:100*regions[id].mult,badges:newBadges})},850)});
@@ -462,6 +578,119 @@ function identifyPrefecture(properties){
   console.error('지도 로딩 실패',err);
  }
 })();
+
+
+// QUEST JAPAN 3.2: 모바일 탐색, 터치 지도 및 퀘스트 바로가기
+const mobileNavButtons=[...document.querySelectorAll('[data-mobile-nav]')];
+function syncMobileNav(name){
+ const current=name||'map';
+ mobileNavButtons.forEach(b=>{
+  if(b.dataset.mobileNav===current)b.setAttribute('aria-current','page');
+  else b.removeAttribute('aria-current');
+ });
+}
+const reducedMotion=()=>window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function jumpTo(element){element?.scrollIntoView({behavior:reducedMotion()?'auto':'smooth',block:'start'});}
+mobileNavButtons.forEach(button=>button.addEventListener('click',()=>{
+ const target=button.dataset.mobileNav;
+ if(target==='map'){
+  syncMobileNav('map');jumpTo($('mapViewport').closest('.panel'));
+ }else{
+  setTab(target);jumpTo($('explore'));
+ }
+}));
+document.querySelectorAll('[data-mobile-region]').forEach(button=>button.addEventListener('click',()=>{
+ selectRegion(button.dataset.mobileRegion);
+ jumpTo(document.querySelector('.details'));
+ syncMobileNav('map');
+}));
+$('mobileRegionDetail').addEventListener('click',()=>jumpTo(document.querySelector('.details')));
+
+// SVG viewBox를 이용한 확대/축소: 지형·위치 점·바다 라벨을 한 좌표계로 유지합니다.
+(function setupMapViewport(){
+ const svg=$('japanMap'),viewport=$('mapViewport');
+ const WIDTH=660,HEIGHT=560,MAX=3.4;
+ let zoom=1,vb={x:0,y:0,w:WIDTH,h:HEIGHT};
+ const limit=(v,min,max)=>Math.min(max,Math.max(min,v));
+ const apply=()=>{
+  vb.x=limit(vb.x,0,WIDTH-vb.w);vb.y=limit(vb.y,0,HEIGHT-vb.h);
+  svg.setAttribute('viewBox',`${vb.x.toFixed(3)} ${vb.y.toFixed(3)} ${vb.w.toFixed(3)} ${vb.h.toFixed(3)}`);
+  viewport.classList.toggle('zoomed',zoom>1.001);
+  $('mapZoomOut').disabled=zoom<=1.001;
+  $('mapZoomIn').disabled=zoom>=MAX-.001;
+  $('mapZoomReset').disabled=zoom<=1.001;
+ };
+ // SVG preserveAspectRatio='xMidYMid meet'에 따른 여백까지 고려한 화면->지도 좌표 변환.
+ function screenToMap(clientX,clientY){
+  const rect=svg.getBoundingClientRect();
+  const scale=Math.min(rect.width/vb.w,rect.height/vb.h);
+  const drawnW=vb.w*scale,drawnH=vb.h*scale;
+  const offsetX=(rect.width-drawnW)/2,offsetY=(rect.height-drawnH)/2;
+  return {x:vb.x+(clientX-rect.left-offsetX)/scale,y:vb.y+(clientY-rect.top-offsetY)/scale};
+ }
+ function zoomTo(next,clientX,clientY){
+  const newZoom=limit(next,1,MAX);
+  if(Math.abs(newZoom-zoom)<.0001)return;
+  const rect=svg.getBoundingClientRect();
+  const cx=clientX??rect.left+rect.width/2,cy=clientY??rect.top+rect.height/2;
+  const p=screenToMap(cx,cy),ratio=zoom/newZoom;
+  vb={x:p.x-(p.x-vb.x)*ratio,y:p.y-(p.y-vb.y)*ratio,w:WIDTH/newZoom,h:HEIGHT/newZoom};
+  zoom=newZoom;apply();
+ }
+ $('mapZoomIn').addEventListener('click',()=>zoomTo(zoom*1.45));
+ $('mapZoomOut').addEventListener('click',()=>zoomTo(zoom/1.45));
+ $('mapZoomReset').addEventListener('click',()=>{zoom=1;vb={x:0,y:0,w:WIDTH,h:HEIGHT};apply()});
+ // 마우스 드래그: 확대된 경우만 이동, 휴대폰은 확대 전 세로 스크롤 보존.
+ let down=null,suppressClick=false,suppressUntil=0;
+ svg.addEventListener('pointerdown',e=>{
+  if(e.pointerType!=='mouse'||e.button!==0||zoom<=1)return;
+  down={x:e.clientX,y:e.clientY,start:{...vb},moved:false};
+ });
+ window.addEventListener('pointermove',e=>{
+  if(!down)return;
+  const dx=e.clientX-down.x,dy=e.clientY-down.y;
+  if(Math.abs(dx)+Math.abs(dy)>6)down.moved=true;
+  if(!down.moved)return;
+  const rect=svg.getBoundingClientRect();const factor=Math.min(rect.width/vb.w,rect.height/vb.h);
+  vb.x=down.start.x-dx/factor;vb.y=down.start.y-dy/factor;apply();
+ });
+ window.addEventListener('pointerup',()=>{if(down?.moved){suppressClick=true;suppressUntil=Date.now()+380;}down=null});
+ svg.addEventListener('click',e=>{if(suppressClick&&Date.now()<suppressUntil){e.preventDefault();e.stopImmediatePropagation();suppressClick=false}},true);
+ // 모바일 Safari에서도 반응하는 두 손가락 핀치 및 확대 후 한 손가락 이동.
+ let initialTouches=null;
+ function touchPoint(t){return {x:t.clientX,y:t.clientY}}
+ function touchDistance(a,b){return Math.hypot(a.x-b.x,a.y-b.y)}
+ svg.addEventListener('touchstart',e=>{
+  if(e.touches.length===2){
+   const a=touchPoint(e.touches[0]),b=touchPoint(e.touches[1]);
+   initialTouches={mode:'pinch',distance:touchDistance(a,b),startZoom:zoom,center:{x:(a.x+b.x)/2,y:(a.y+b.y)/2},lastZoom:zoom};
+   if(e.cancelable)e.preventDefault();
+  }else if(e.touches.length===1&&zoom>1.001){
+   const a=touchPoint(e.touches[0]);initialTouches={mode:'pan',x:a.x,y:a.y,start:{...vb},moved:false};
+  }else initialTouches=null;
+ },{passive:false});
+ svg.addEventListener('touchmove',e=>{
+  if(!initialTouches)return;
+  if(initialTouches.mode==='pinch'&&e.touches.length===2){
+   if(e.cancelable)e.preventDefault();
+   const a=touchPoint(e.touches[0]),b=touchPoint(e.touches[1]);
+   const next=initialTouches.startZoom*touchDistance(a,b)/Math.max(10,initialTouches.distance);
+   zoomTo(next,(a.x+b.x)/2,(a.y+b.y)/2);
+   suppressClick=true;suppressUntil=Date.now()+500;
+  }else if(initialTouches.mode==='pan'&&e.touches.length===1&&zoom>1.001){
+   const a=touchPoint(e.touches[0]),dx=a.x-initialTouches.x,dy=a.y-initialTouches.y;
+   if(Math.abs(dx)+Math.abs(dy)>5)initialTouches.moved=true;
+   if(!initialTouches.moved)return;
+   if(e.cancelable)e.preventDefault();
+   const rect=svg.getBoundingClientRect();const factor=Math.min(rect.width/vb.w,rect.height/vb.h);
+   vb.x=initialTouches.start.x-dx/factor;vb.y=initialTouches.start.y-dy/factor;apply();
+   suppressClick=true;suppressUntil=Date.now()+500;
+  }
+ },{passive:false});
+ svg.addEventListener('touchend',e=>{if(e.touches.length===0)initialTouches=null},{passive:true});
+ apply();
+})();
+
 </script>
 </body>
 </html>
